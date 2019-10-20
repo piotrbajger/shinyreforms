@@ -62,23 +62,21 @@ ShinyForm <- R6Class(
         },
 
         validate = function(input, output) {
-            shiny::reactive({
-                valid <- TRUE
-                for (tagId in names(self$elements)) {
-                    value <- input[[tagId]]
-                    output[[addValidationSuffix(tagId)]] <- renderText("")
+            valid <- TRUE
+            for (tagId in names(self$elements)) {
+                value <- self$getValue(input, tagId)
+                output[[addValidationSuffix(tagId)]] <- renderText("")
 
-                    for (validator in self$validators[[tagId]]) {
-                        if (!validator$check(value)) {
-                            output[[addValidationSuffix(tagId)]] <- renderText(validator$failMessage)
-                            valid <- FALSE
-                            break
-                        }
+                for (validator in self$validators[[tagId]]) {
+                    if (!validator$check(value)) {
+                        output[[addValidationSuffix(tagId)]] <- renderText(validator$failMessage)
+                        valid <- FALSE
+                        break
                     }
                 }
+            }
 
-                return(valid)
-            })()
+            return(valid)
         },
 
         submissionEvent = function(input) {
