@@ -33,3 +33,15 @@ ValidatorMaxLength <- function(maxLength) {
         return (nchar(value) <= maxLength)
     }, paste0("Input too long (>", maxLength, ")."))
 }
+
+
+#' Validator requiring a input (e.g. checkbox).
+#' 
+#' Will return FALSE if the input value is FALSE (e.g. like
+#' for an unchecked textbox.)
+#' @export
+ValidatorRequired <- function() {
+    Validator$new(function(value) {
+        return(value)
+    }, "Field required.")
+}
