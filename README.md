@@ -4,7 +4,7 @@
 ShinyForms package lets you add and validate Forms in your
 Shiny application with an object-oriented interface.
 
-## Instalation
+## Installation
 
 ```r
 # Install current version from GitHub:
