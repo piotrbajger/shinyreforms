@@ -24,9 +24,10 @@ library(shinyforms)
 # Create a form
 myForm <- shinyforms::ShinyForm$new(
     "myForm", 
+    # Wrap the shiny input widgets in validatedInput.
     shinyforms::validatedInput(
         shiny::textInput("name_input", label="Username"),
-        shinyforms::ValidatorMinLength(4),
+        shinyforms::ValidatorMinLength(4),  # You can use built-in validators, or define your own.
         shinyforms::ValidatorMaxLength(12)
     ),
     submit=shiny::actionButton("submit", "Submit")
@@ -61,5 +62,5 @@ server <- function(input, output, session) {
 }
 
 
-shiny::shinyApp(ui=ui, server=server
+shiny::shinyApp(ui=ui, server=server)
 ```
