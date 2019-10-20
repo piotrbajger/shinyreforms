@@ -1,31 +1,27 @@
 library(R6)
 
 
-#' Class representing a Validator. Validators are used to 
-#' validate input fields in a ShinyForm. A single input field
-#' can have several validators.
+#' Class representing a Validator.
+#' 
+#' @description 
+#' Validators are used to validate input fields in a ShinyForm.
+#' Validators are to be used with the validatedInput function.
+#' A single input field can have several validators.
+#' 
+#' @usage
+#' Validator(function(value) {...}, "Validation failed!")
 #' 
 #' @field test Function returning a boolean value which will be used
 #'   to validate input.
 #' @field failMessage Error message to display when validation fails.
 #' 
-#' To use a validator, wrap up a shiny input tag in a validatedInput
-#' function, e.g.
-#' \code{
-#' validatedInput(
-#'   shiny::textInput("name", label="Name"),
-#'   ValidatorMinLength(4),
-#'   ValidatorMaxLength(12)
-#' )
-#' }
-#' 
 #' @details
 #' Package shinyformss defines a set of commonly used pre-defined
 #' Validators. These include:
 #' \describe{
-#'  \item{ValidatorMinLength(minLength)}{Will fail if string is shorter than minLength}
-#'  \item{ValidatorMaxLength(maxLength)}{Will fail if string is longer than maxLength}
-#'  \item{ValidatorNonEmpty()}{Will fail if string is empty.}
+#'  \item{ValidatorMinLength(minLength):}{Will fail if string is shorter than minLength.}
+#'  \item{ValidatorMaxLength(maxLength):}{Will fail if string is longer than maxLength.}
+#'  \item{ValidatorNonEmpty():}{Will fail if string is empty.}
 #' }
 #' 
 #' @name Validator

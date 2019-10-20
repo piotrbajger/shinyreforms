@@ -10,10 +10,12 @@ library(R6)
 #' 
 #' @section Methods:
 #' \describe{
-#' \item{ui}{Returns a list of shiny tags corresponding to the form.}
-#' \item{validate}{Returns TRUE or FALSE based on from validation.}
-#' \item{submissionEvent}{A form submission event to be used with shiny::observeEvent.}
-#' \item{getValue}{Returns the value of a form element with a given id.}
+#' \item{ui():}{Returns a list of shiny tags corresponding to the form.}
+#' \item{validate(input, output):}{Returns TRUE or FALSE based on from
+#'      validation. Displays error messages for fields which did not pass
+#'      validation.}
+#' \item{submissionEvent(input):}{A form submission event to be used with shiny::observeEvent.}
+#' \item{getValue(input, inputId):}{Returns the value of a form element with a given id.}
 #' }
 #' 
 #' @name ShinyForm
@@ -87,7 +89,7 @@ ShinyForm <- R6Class(
             if ( !(inputId %in% names(self$elements)) ) {
                 shiny::safeError(paste0("Id ", inputId, " is not a valid Id for ", self$id, "."))
             }
-            shiny::reactive(input[[inputId]])()
+            shiny::isolate(input[[inputId]])
         }
     )
 )
@@ -98,14 +100,10 @@ ShinyForm <- R6Class(
 #' This should only be used in ShinyForm constructor.
 #' 
 #' @examples
-#' my_form <- shinyforms::ShinyForm$new(
-#'     "my_form", 
-#'     shinyforms::validatedInput(
-#'         shiny::textInput("text_input", label="Username"),
-#'         shinyforms::ValidatorMinLength(4),
-#'         shinyforms::ValidatorMaxLength(12)
-#'     ),
-#'     submit=shiny::actionButton("submit", "Submit")
+#' shinyforms::validatedInput(
+#'     shiny::textInput("text_input", label="Username"),
+#'     shinyforms::ValidatorMinLength(4),
+#'     shinyforms::ValidatorMaxLength(12)
 #' )
 #' @export
 validatedInput <- function(tag, ...) {

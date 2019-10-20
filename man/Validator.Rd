@@ -2,21 +2,22 @@
 % Please edit documentation in R/validator.R
 \name{Validator}
 \alias{Validator}
-\title{Class representing a Validator. Validators are used to 
-validate input fields in a ShinyForm. A single input field
-can have several validators.}
+\title{Class representing a Validator.}
+\usage{
+Validator(function(value) {...}, "Validation failed!")
+}
 \description{
-Class representing a Validator. Validators are used to 
-validate input fields in a ShinyForm. A single input field
-can have several validators.
+Validators are used to validate input fields in a ShinyForm.
+Validators are to be used with the validatedInput function.
+A single input field can have several validators.
 }
 \details{
 Package shinyformss defines a set of commonly used pre-defined
 Validators. These include:
 \describe{
- \item{ValidatorMinLength(minLength)}{Will fail if string is shorter than minLength}
- \item{ValidatorMaxLength(maxLength)}{Will fail if string is longer than maxLength}
- \item{ValidatorNonEmpty()}{Will fail if string is empty.}
+ \item{ValidatorMinLength(minLength):}{Will fail if string is shorter than minLength.}
+ \item{ValidatorMaxLength(maxLength):}{Will fail if string is longer than maxLength.}
+ \item{ValidatorNonEmpty():}{Will fail if string is empty.}
 }
 }
 \section{Fields}{
@@ -25,16 +26,6 @@ Validators. These include:
 \item{\code{test}}{Function returning a boolean value which will be used
 to validate input.}
 
-\item{\code{failMessage}}{Error message to display when validation fails.
-
-To use a validator, wrap up a shiny input tag in a validatedInput
-function, e.g.
-\code{
-validatedInput(
-  shiny::textInput("name", label="Name"),
-  ValidatorMinLength(4),
-  ValidatorMaxLength(12)
-)
-}}
+\item{\code{failMessage}}{Error message to display when validation fails.}
 }}
 
