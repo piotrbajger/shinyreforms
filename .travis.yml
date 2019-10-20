@@ -1,0 +1,10 @@
+language: r
+sudo: true
+cache: packages
+warnings_are_errors: false
+
+r:
+  - release
+
+r_build_args: --no-build-vignettes --no-manual
+r_check_args: --no-build-vignettes --no-manual --timings
