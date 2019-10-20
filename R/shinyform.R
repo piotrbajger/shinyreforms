@@ -101,10 +101,10 @@ ShinyForm <- R6Class(
 #' This should only be used in ShinyForm constructor.
 #' 
 #' @examples
-#' shinyforms::validatedInput(
+#' shinyreforms::validatedInput(
 #'     shiny::textInput("text_input", label="Username"),
-#'     shinyforms::ValidatorMinLength(4),
-#'     shinyforms::ValidatorMaxLength(12)
+#'     shinyreforms::ValidatorMinLength(4),
+#'     shinyreforms::ValidatorMaxLength(12)
 #' )
 #' @export
 validatedInput <- function(tag, ...) {
@@ -128,7 +128,7 @@ validatedInput <- function(tag, ...) {
 
 #' Appends a validation suffix to a string.
 addValidationSuffix <- function(tagId) {
-    return(paste0(tagId, "-shinyforms-validation"))
+    return(paste0(tagId, "-shinyreforms-validation"))
 }
 
 

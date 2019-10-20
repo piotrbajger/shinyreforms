@@ -16,7 +16,7 @@ library(R6)
 #' @field failMessage Error message to display when validation fails.
 #' 
 #' @details
-#' Package shinyformss defines a set of commonly used pre-defined
+#' Package shinyreformss defines a set of commonly used pre-defined
 #' Validators. These include:
 #' \describe{
 #'  \item{ValidatorMinLength(minLength):}{Will fail if string is shorter than minLength.}

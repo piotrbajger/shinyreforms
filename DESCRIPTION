@@ -1,4 +1,4 @@
-Package: shinyforms
+Package: shinyreforms
 Title: Add Forms to a Shiny App
 Version: 0.0.0.9000
 Authors@R: 
@@ -9,7 +9,7 @@ Authors@R:
     )
 Description: Add Forms to your Shiny App and validate Inputs easily
     with an Object-Oriented interface.
-URL: https://github.com/piotrbajger/shinyforms
+URL: https://github.com/piotrbajger/shinyreforms
 Depends: R (>= 3.0)
 License: GPL (>= 2) | file LICENSE
 Imports:
@@ -18,7 +18,7 @@ Imports:
     R6
 Suggests:
     testthat
-BugReports: https://github.com/piotrbajger/shinyforms
+BugReports: https://github.com/piotrbajger/shinyreforms
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.99.9001

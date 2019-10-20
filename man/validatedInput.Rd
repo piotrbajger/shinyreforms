@@ -12,9 +12,9 @@ Use to create shiny input tags with validation.
 This should only be used in ShinyForm constructor.
 }
 \examples{
-shinyforms::validatedInput(
+shinyreforms::validatedInput(
     shiny::textInput("text_input", label="Username"),
-    shinyforms::ValidatorMinLength(4),
-    shinyforms::ValidatorMaxLength(12)
+    shinyreforms::ValidatorMinLength(4),
+    shinyreforms::ValidatorMaxLength(12)
 )
 }

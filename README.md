@@ -1,7 +1,7 @@
-# ShinyForms
-[![Build Status](https://travis-ci.com/piotrbajger/shinyforms.svg?token=f2fdroCWHHtzKnXccRgX&branch=master)](https://travis-ci.com/piotrbajger/shinyforms)
+# shinyreforms
+[![Build Status](https://travis-ci.com/piotrbajger/shinyreforms.svg?token=f2fdroCWHHtzKnXccRgX&branch=master)](https://travis-ci.com/piotrbajger/shinyreforms)
 
-ShinyForms package lets you add and validate Forms in your
+shinyreforms package lets you add and validate Forms in your
 Shiny application with an object-oriented interface.
 
 ## Installation
@@ -9,7 +9,7 @@ Shiny application with an object-oriented interface.
 ```r
 # Install current version from GitHub:
 # install.packages("devtools")
-devtools::install_github("piotrbajger/shinyforms")
+devtools::install_github("piotrbajger/shinyreforms")
 ```
 
 ## Examples
@@ -18,17 +18,17 @@ A minimum example app:
 
 ```r
 library(shiny)
-library(shinyforms)
+library(shinyreforms)
 
 
 # Create a form
-myForm <- shinyforms::ShinyForm$new(
+myForm <- shinyreforms::ShinyForm$new(
     "myForm", 
     # Wrap the shiny input widgets in validatedInput.
-    shinyforms::validatedInput(
+    shinyreforms::validatedInput(
         shiny::textInput("name_input", label="Username"),
-        shinyforms::ValidatorMinLength(4),  # You can use built-in validators, or define your own.
-        shinyforms::ValidatorMaxLength(12)
+        shinyreforms::ValidatorMinLength(4),  # You can use built-in validators, or define your own.
+        shinyreforms::ValidatorMaxLength(12)
     ),
     submit=shiny::actionButton("submit", "Submit")
 )
@@ -36,7 +36,7 @@ myForm <- shinyforms::ShinyForm$new(
 
 ui <- shiny::bootstrapPage(
     shiny::fluidPage(
-        shiny::tags$h2("Here's a shinyforms::ShinyForm!"),
+        shiny::tags$h2("Here's a shinyreforms::ShinyForm!"),
         # Include form in the ui
         myForm$ui(),
         shiny::tags$h2("Validation result"),

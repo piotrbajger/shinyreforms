@@ -1,5 +1,5 @@
 context("Test built-in Validators.")
-library(shinyforms)
+library(shinyreforms)
 
 
 test_that("ValidatorNonEmpty works", {
