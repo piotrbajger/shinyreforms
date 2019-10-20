@@ -63,17 +63,20 @@ ShinyForm <- R6Class(
 
         validate = function(input, output) {
             valid <- TRUE
-            for (tagId in names(self$elements)) {
-                value <- self$getValue(input, tagId)
-                output[[addValidationSuffix(tagId)]] <- renderText("")
+            for (.tagId in names(self$elements)) {
+                local({
+                    tagId <- .tagId
+                    value <- self$getValue(input, tagId)
+                    output[[addValidationSuffix(tagId)]] <- renderText("")
 
-                for (validator in self$validators[[tagId]]) {
-                    if (!validator$check(value)) {
-                        output[[addValidationSuffix(tagId)]] <- renderText(validator$failMessage)
-                        valid <- FALSE
-                        break
+                    for (validator in self$validators[[tagId]]) {
+                        if (!validator$check(value)) {
+                            output[[addValidationSuffix(tagId)]] <- renderText(validator$failMessage)
+                            valid <- FALSE
+                            break
+                        }
                     }
-                }
+                })
             }
 
             return(valid)
@@ -131,10 +134,20 @@ addValidationSuffix <- function(tagId) {
 
 #' Returns an id of an input tag.
 getInputId <- function(input_tag) {
+    if (!inherits(input_tag, "shiny.tag")) {
+        return(NULL)
+    }
+
     if ("id" %in% names(input_tag$attribs)) {
         return(input_tag$attribs[["id"]])
     }
 
-    return(input_tag$children[[1]]$attribs[["for"]])
+    for (child in input_tag$children) {
+        tagId <- getInputId(child)
+
+        if (!is.null(tagId)) return(tagId)
+    }
+
+    return(NULL)
 }
 
