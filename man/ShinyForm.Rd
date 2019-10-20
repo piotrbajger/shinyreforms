@@ -5,21 +5,9 @@
 \title{Class representing a ShinyForm form.}
 \description{
 Class representing a ShinyForm form.
-
-Class representing a ShinyForm form.
 }
-\section{Methods}{
+\section{Fields}{
 
-\describe{
- \item{ui Returns a list of shiny tags corresponding to the form.}
- \item{validate Returns TRUE or FALSE based on from validation.}
- \item{submissionEvent A form submission event to be used with shiny::observeEvent.}
- \item{getValue Returns the value of a form element with a given id.}
-}
-}
-
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{id}}{Unique form id which can be used with Shiny input.}
 
@@ -28,57 +16,15 @@ Class representing a ShinyForm form.
 \item{\code{validators}}{A list of Validators used to validate each field.}
 
 \item{\code{submit}}{A submit Action button/link.}
-}
-\if{html}{\out{</div>}}
-}
+}}
+
 \section{Methods}{
-\subsection{Public methods}{
-\itemize{
-\item \href{#method-new}{\code{ShinyForm$new()}}
-\item \href{#method-ui}{\code{ShinyForm$ui()}}
-\item \href{#method-validate}{\code{ShinyForm$validate()}}
-\item \href{#method-submissionEvent}{\code{ShinyForm$submissionEvent()}}
-\item \href{#method-getValue}{\code{ShinyForm$getValue()}}
+
+\describe{
+\item{ui}{Returns a list of shiny tags corresponding to the form.}
+\item{validate}{Returns TRUE or FALSE based on from validation.}
+\item{submissionEvent}{A form submission event to be used with shiny::observeEvent.}
+\item{getValue}{Returns the value of a form element with a given id.}
 }
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\subsection{Method \code{new()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$new(id, ..., submit)}\if{html}{\out{</div>}}
 }
 
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ui"></a>}}
-\subsection{Method \code{ui()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$ui()}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\subsection{Method \code{validate()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$validate(input, output)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-submissionEvent"></a>}}
-\subsection{Method \code{submissionEvent()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$submissionEvent(input)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getValue"></a>}}
-\subsection{Method \code{getValue()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$getValue(input, inputId)}\if{html}{\out{</div>}}
-}
-
-}
-}
