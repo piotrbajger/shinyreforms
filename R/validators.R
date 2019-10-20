@@ -6,9 +6,6 @@
 #' @export
 ValidatorNonEmpty <- function() {
     Validator$new(function(value) {
-        if (is.null(value)) return(FALSE)
-        if (length(value) == 0) return(FALSE)
-
         return (value != "")
     }, "Field can not be empty.")
 }
@@ -21,24 +18,18 @@ ValidatorNonEmpty <- function() {
 #' @export
 ValidatorMinLength <- function(minLength) {
     Validator$new(function(value) {
-        if (is.null(value)) return(FALSE)
-        if (length(value) == 0) return(FALSE)
-
         return (nchar(value) >= minLength)
     }, paste0("Input too short (<", minLength, ")."))
 }
 
 
-#' Validator requiring minimum length.
+#' Validator requiring maximum length.
 #' 
-#' Will return TRUE for strings longer than the minimum value.
+#' Will return TRUE for strings longer than the maximum value.
 #' 
 #' @export
 ValidatorMaxLength <- function(maxLength) {
     Validator$new(function(value) {
-        if (is.null(value)) return(FALSE)
-        if (length(value) == 0) return(FALSE)
-
         return (nchar(value) <= maxLength)
     }, paste0("Input too long (>", maxLength, ")."))
 }
