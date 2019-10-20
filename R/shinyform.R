@@ -10,11 +10,17 @@ library(R6)
 #' 
 #' @section Methods:
 #' \describe{
-#'  \item{ui Returns a list of shiny tags corresponding to the form.}
-#'  \item{validate Returns TRUE or FALSE based on from validation.}
-#'  \item{submission A form submission event to be used with shiny::observeEvent.}
+#' \item{ui}{Returns a list of shiny tags corresponding to the form.}
+#' \item{validate}{Returns TRUE or FALSE based on from validation.}
+#' \item{submissionEvent}{A form submission event to be used with shiny::observeEvent.}
+#' \item{getValue}{Returns the value of a form element with a given id.}
 #' }
 #' 
+#' @name ShinyForm
+NULL
+
+
+#' @importFrom R6 R6Class
 #' @export
 ShinyForm <- R6Class(
     "ShinyForm",
@@ -70,15 +76,19 @@ ShinyForm <- R6Class(
                 }
 
                 return(valid)
-            })
+            })()
         },
 
-        submission = function(input) {
+        submissionEvent = function(input) {
             input[[self$submit$attribs$id]]
-        }
-    ),
+        },
 
-    private = list(
+        getValue = function(input, inputId) {
+            if ( !(inputId %in% names(self$elements)) ) {
+                shiny::safeError(paste0("Id ", inputId, " is not a valid Id for ", self$id, "."))
+            }
+            shiny::reactive(input[[inputId]])()
+        }
     )
 )
 

@@ -13,7 +13,8 @@ Class representing a ShinyForm form.
 \describe{
  \item{ui Returns a list of shiny tags corresponding to the form.}
  \item{validate Returns TRUE or FALSE based on from validation.}
- \item{submission A form submission event to be used with shiny::observeEvent.}
+ \item{submissionEvent A form submission event to be used with shiny::observeEvent.}
+ \item{getValue Returns the value of a form element with a given id.}
 }
 }
 
@@ -36,7 +37,8 @@ Class representing a ShinyForm form.
 \item \href{#method-new}{\code{ShinyForm$new()}}
 \item \href{#method-ui}{\code{ShinyForm$ui()}}
 \item \href{#method-validate}{\code{ShinyForm$validate()}}
-\item \href{#method-submission}{\code{ShinyForm$submission()}}
+\item \href{#method-submissionEvent}{\code{ShinyForm$submissionEvent()}}
+\item \href{#method-getValue}{\code{ShinyForm$getValue()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -64,10 +66,18 @@ Class representing a ShinyForm form.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-submission"></a>}}
-\subsection{Method \code{submission()}}{
+\if{html}{\out{<a id="method-submissionEvent"></a>}}
+\subsection{Method \code{submissionEvent()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$submission(input)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$submissionEvent(input)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getValue"></a>}}
+\subsection{Method \code{getValue()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$getValue(input, inputId)}\if{html}{\out{</div>}}
 }
 
 }
