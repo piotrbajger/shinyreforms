@@ -2,10 +2,10 @@
 % Please edit documentation in R/validators.R
 \name{ValidatorMaxLength}
 \alias{ValidatorMaxLength}
-\title{Validator requiring minimum length.}
+\title{Validator requiring maximum length.}
 \usage{
 ValidatorMaxLength(maxLength)
 }
 \description{
-Will return TRUE for strings longer than the minimum value.
+Will return TRUE for strings longer than the maximum value.
 }
