@@ -97,7 +97,7 @@ ShinyForm <- R6Class(
 #' Use to create shiny input tags with validation.
 #' This should only be used in ShinyForm constructor.
 #' 
-#' @example 
+#' @examples
 #' my_form <- shinyforms::ShinyForm$new(
 #'     "my_form", 
 #'     shinyforms::validatedInput(
