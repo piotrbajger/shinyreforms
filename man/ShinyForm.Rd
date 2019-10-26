@@ -13,8 +13,6 @@ Class representing a ShinyForm form.
 
 \item{\code{elements}}{A list of ShinyForm input elements.}
 
-\item{\code{validators}}{A list of Validators used to validate each field.}
-
 \item{\code{submit}}{A submit Action button/link.}
 }}
 

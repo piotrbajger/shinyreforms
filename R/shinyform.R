@@ -5,7 +5,6 @@ library(R6)
 #' 
 #' @field id Unique form id which can be used with Shiny input.
 #' @field elements A list of ShinyForm input elements.
-#' @field validators A list of Validators used to validate each field.
 #' @field submit A submit Action button/link.
 #' 
 #' @section Methods:
@@ -30,7 +29,6 @@ ShinyForm <- R6Class(
     public = list(
         id = character(0),
         elements = list(),
-        validators = list(),
         submit = NULL,
 
         initialize = function(id, ..., submit) {
@@ -42,15 +40,12 @@ ShinyForm <- R6Class(
             for (elem in elems) {
                 if (inherits(elem, "shiny.tag")) {
                     tag <- elem
-                } else if (inherits(elem$tag, "shiny.tag")) {
-                    tag <- elem$tag
                 } else {
                     stop(paste0("Element ", elem, " is not a shiny.tag!"))
                 }
 
                 tagId <- getInputId(tag)
                 self$elements[[tagId]] <- tag
-                self$validators[[tagId]] <- elem$validators 
             }
         },
 
@@ -63,19 +58,21 @@ ShinyForm <- R6Class(
 
         validate = function(input, output) {
             valid <- TRUE
-            for (.tagId in names(self$elements)) {
-                local({
-                    tagId <- .tagId
-                    value <- self$getValue(input, tagId)
-                    output[[addValidationSuffix(tagId)]] <- renderText("")
+            for (tagId in names(self$elements)) {
+                valid <- valid & local({
+                    .valid <- TRUE
+                    .tagId <- tagId
+                    value <- self$getValue(input, .tagId)
+                    output[[addValidationSuffix(.tagId)]] <- renderText("")
 
-                    for (validator in self$validators[[tagId]]) {
+                    for (validator in attr(self$elements[[.tagId]], "validators")) {
                         if (!validator$check(value)) {
-                            output[[addValidationSuffix(tagId)]] <- renderText(validator$failMessage)
-                            valid <- FALSE
+                            output[[addValidationSuffix(.tagId)]] <- renderText(validator$failMessage)
+                            .valid <- FALSE
                             break
                         }
                     }
+                    .valid
                 })
             }
 
@@ -94,36 +91,6 @@ ShinyForm <- R6Class(
         }
     )
 )
-
-
-
-#' Use to create shiny input tags with validation.
-#' This should only be used in ShinyForm constructor.
-#' 
-#' @examples
-#' shinyreforms::validatedInput(
-#'     shiny::textInput("text_input", label="Username"),
-#'     shinyreforms::ValidatorMinLength(4),
-#'     shinyreforms::ValidatorMaxLength(12)
-#' )
-#' @export
-validatedInput <- function(tag, ...) {
-    validators <- list(...)
-
-    tagId <- getInputId(tag)
-    validationResult <- shiny::tags$div(
-        id=addValidationSuffix(tagId),
-        class="shiny-text-output text-danger"
-    )
-
-    tag$children[[length(tag$children) + 1]] <- validationResult
-
-    result <- list()
-    result$tag <- tag
-    result$validators <- validators
-
-    return(result)
-}
 
 
 #' Appends a validation suffix to a string.

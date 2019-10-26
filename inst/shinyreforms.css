@@ -1,0 +1,26 @@
+.shinyreforms-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.shinyreforms-tooltip .shinyreforms-tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 5px;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    position: absolute;
+    z-index: 1;
+
+    width: 250px;
+}
+
+.shinyreforms-tooltip:hover .shinyreforms-tooltip-text {
+    display: inline-block;
+    visibility: visible;
+    opacity: 0.75;
+}
