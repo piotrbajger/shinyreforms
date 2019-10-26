@@ -14,7 +14,10 @@ This should only be used in ShinyForm constructor.
 \examples{
 shinyreforms::validatedInput(
     shiny::textInput("text_input", label="Username"),
-    shinyreforms::ValidatorMinLength(4),
-    shinyreforms::ValidatorMaxLength(12)
+    helpText="Username must have length between 4 and 12 characters.",
+    validators=c(
+        shinyreforms::ValidatorMinLength(4),
+        shinyreforms::ValidatorMaxLength(12)
+    )
 )
 }

@@ -6,8 +6,11 @@ library(R6)
 #' @examples
 #' shinyreforms::validatedInput(
 #'     shiny::textInput("text_input", label="Username"),
-#'     shinyreforms::ValidatorMinLength(4),
-#'     shinyreforms::ValidatorMaxLength(12)
+#'     helpText="Username must have length between 4 and 12 characters.",
+#'     validators=c(
+#'         shinyreforms::ValidatorMinLength(4),
+#'         shinyreforms::ValidatorMaxLength(12)
+#'     )
 #' )
 #' @export
 validatedInput <- function(tag, helpText=NULL, validators=c()) {
