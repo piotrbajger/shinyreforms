@@ -16,6 +16,8 @@ devtools::install_github("piotrbajger/shinyreforms")
 
 A minimum example app:
 
+![ShinyReforms Example](https://i.imgur.com/bdC7joB.png "ShinyReforms Example")
+
 ```r
 library(shiny)
 library(shinyreforms)
