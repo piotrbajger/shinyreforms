@@ -14,9 +14,7 @@ devtools::install_github("piotrbajger/shinyreforms")
 
 ## Examples
 
-A minimum example app:
-
-![ShinyReforms Example](https://i.imgur.com/bdC7joB.png "ShinyReforms Example")
+A minimum example App:
 
 ```r
 library(shiny)
@@ -83,3 +81,7 @@ server <- function(input, output, session) {
 
 shiny::shinyApp(ui=ui, server=server)
 ```
+
+Running the above code will result in the following simple form:
+
+![ShinyReforms Example](https://i.imgur.com/bdC7joB.png "ShinyReforms Example")
