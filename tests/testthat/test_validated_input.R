@@ -9,7 +9,6 @@ library(shinyreforms)
 
 test_that("Validate shiny::textInput", {
     testInput <- shiny::textInput("text_input", label="Test")
-    n_children = length(testInput$children)
 
     newInput <- validatedInput(
         testInput,
@@ -25,7 +24,6 @@ test_that("Validate shiny::textInput", {
 
 test_that("Validate shiny::checkboxInput", {
     testInput <- shiny::checkboxInput("input_checkbox", label="Test")
-    n_children = length(testInput$children)
 
     newInput <- validatedInput(
         testInput,
@@ -45,7 +43,25 @@ test_that("Validate shiny::checkboxGroupInput", {
         label="Test",
         choices=list("A"=1, "B"=2, "C"=3)
     )
-    n_children = length(testInput$children)
+
+    newInput <- validatedInput(
+        testInput,
+        helpText="dummy",
+        validators=c(.testValidator)
+    )
+
+    expect_equal(length(attr(newInput, "validators")), 1)
+    expect_true(grepl("dummy", toString(newInput)))
+    expect_true(grepl("shinyreforms-validation", toString(newInput)))
+})
+
+
+test_that("Validate shiny::numericInput", {
+    testInput <- shiny::numericInput(
+        "input_numeric",
+        label="Test",
+        10
+    )
 
     newInput <- validatedInput(
         testInput,
