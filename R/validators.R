@@ -1,5 +1,6 @@
 #' Validator requiring non-emptiness.
 #' 
+#' @description
 #' Will return FASLE if the input is NULL, an empty vector,
 #' or an empty string ("") and FALSE otherwise.
 #' 
@@ -13,8 +14,11 @@ ValidatorNonEmpty <- function() {
 
 #' Validator requiring minimum length.
 #' 
+#' @description
 #' Will return TRUE for strings longer than the minimum value.
 #' 
+#' @param minLength Minimum length of the input.
+#'
 #' @export
 ValidatorMinLength <- function(minLength) {
     Validator$new(function(value) {
@@ -25,8 +29,11 @@ ValidatorMinLength <- function(minLength) {
 
 #' Validator requiring maximum length.
 #' 
+#' @description 
 #' Will return TRUE for strings longer than the maximum value.
 #' 
+#' @param maxLength Maximum length of the input.
+#'
 #' @export
 ValidatorMaxLength <- function(maxLength) {
     Validator$new(function(value) {
@@ -37,6 +44,7 @@ ValidatorMaxLength <- function(maxLength) {
 
 #' Validator requiring a input (e.g. checkbox).
 #' 
+#' @description
 #' Will return FALSE if the input value is FALSE (e.g. like
 #' for an unchecked textbox.)
 #' @export

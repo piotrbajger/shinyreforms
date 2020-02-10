@@ -6,6 +6,12 @@
 \usage{
 addValidationSuffix(tagId)
 }
+\arguments{
+\item{tagId}{ID of the tag.}
+}
+\value{
+A string `"{tagId}-shinyreforms-validation"`.
+}
 \description{
 Appends a validation suffix to a string.
 }

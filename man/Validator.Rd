@@ -3,9 +3,6 @@
 \name{Validator}
 \alias{Validator}
 \title{Class representing a Validator.}
-\usage{
-Validator(function(value) {...}, "Validation failed!")
-}
 \description{
 Validators are used to validate input fields in a ShinyForm.
 Validators are to be used with the validatedInput function.
@@ -20,12 +17,59 @@ Validators. These include:
  \item{ValidatorNonEmpty():}{Will fail if string is empty.}
 }
 }
-\section{Fields}{
-
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{test}}{Function returning a boolean value which will be used
 to validate input.}
 
 \item{\code{failMessage}}{Error message to display when validation fails.}
-}}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{Validator$new()}}
+\item \href{#method-check}{\code{Validator$check()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\subsection{Method \code{new()}}{
+Creates a Validator object.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Validator$new(test, failMessage)}\if{html}{\out{</div>}}
+}
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{test}}{A function to test the input. Should
+take a single value as input and return a boolean.}
+
+\item{\code{failMessage}}{A fail message to be displayed.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-check"></a>}}
+\subsection{Method \code{check()}}{
+Performs a check on the input.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Validator$check(value)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{value}}{Input value to be tested.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+TRUE if the check passes, FALSE if otherwise.
+}
+}
+}

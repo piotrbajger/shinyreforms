@@ -2,10 +2,13 @@
 % Please edit documentation in R/shinyform.R
 \name{getInputId}
 \alias{getInputId}
-\title{Returns an id of an input tag.}
+\title{Returns an ID of an input tag.}
 \usage{
-getInputId(input_tag)
+getInputId(inputTag)
+}
+\arguments{
+\item{inputTag}{A shiny tagg to retrieve the ID from.}
 }
 \description{
-Returns an id of an input tag.
+Returns an ID of an input tag.
 }

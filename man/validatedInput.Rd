@@ -2,14 +2,28 @@
 % Please edit documentation in R/validated_input.R
 \name{validatedInput}
 \alias{validatedInput}
-\title{Use to create shiny input tags with validation.
-This should only be used in ShinyForm constructor.}
+\title{Add validator to a Shiny input.}
 \usage{
 validatedInput(tag, helpText = NULL, validators = c())
+}
+\arguments{
+\item{tag}{Tag to be modified.}
+
+\item{helpText}{Tooltip text. If NULL, no tooltip will be added.}
+
+\item{validators}{A vector of `Validator` objects.}
+}
+\value{
+A modified shiny input tag with attached validators
+  and an optional tooltip div.
 }
 \description{
 Use to create shiny input tags with validation.
 This should only be used in ShinyForm constructor.
+}
+\details{
+The Shiny tag receives an additional attribute `validators`
+which is a vector of `Validator` objects.
 }
 \examples{
 shinyreforms::validatedInput(

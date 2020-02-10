@@ -94,22 +94,25 @@ ShinyForm <- R6Class(
 
 
 #' Appends a validation suffix to a string.
+#' @param tagId ID of the tag.
+#' @return A string `"{tagId}-shinyreforms-validation"`.
 addValidationSuffix <- function(tagId) {
     return(paste0(tagId, "-shinyreforms-validation"))
 }
 
 
-#' Returns an id of an input tag.
-getInputId <- function(input_tag) {
-    if (!inherits(input_tag, "shiny.tag")) {
+#' Returns an ID of an input tag.
+#' @param inputTag A shiny tagg to retrieve the ID from.
+getInputId <- function(inputTag) {
+    if (!inherits(inputTag, "shiny.tag")) {
         return(NULL)
     }
 
-    if ("id" %in% names(input_tag$attribs)) {
-        return(input_tag$attribs[["id"]])
+    if ("id" %in% names(inputTag$attribs)) {
+        return(inputTag$attribs[["id"]])
     }
 
-    for (child in input_tag$children) {
+    for (child in inputTag$children) {
         tagId <- getInputId(child)
 
         if (!is.null(tagId)) return(tagId)
@@ -117,4 +120,3 @@ getInputId <- function(input_tag) {
 
     return(NULL)
 }
-

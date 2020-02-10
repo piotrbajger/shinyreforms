@@ -6,6 +6,14 @@
 \usage{
 shinyReformsPage(htmlTag)
 }
+\arguments{
+\item{htmlTag}{A shiny HTML tag.}
+}
 \description{
 Adds a shinyreforms dependency to a tag object.
+}
+\examples{
+\dontrun{
+shinyReformsPage(shiny::fluidPage(...))
+}
 }

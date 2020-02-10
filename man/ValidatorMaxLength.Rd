@@ -6,6 +6,9 @@
 \usage{
 ValidatorMaxLength(maxLength)
 }
+\arguments{
+\item{maxLength}{Maximum length of the input.}
+}
 \description{
 Will return TRUE for strings longer than the maximum value.
 }

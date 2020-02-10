@@ -10,6 +10,12 @@ shinyReformsDependency <- function() {
 
 #' Adds a shinyreforms dependency to a tag object.
 #'
+#' @param htmlTag A shiny HTML tag.
+#' 
+#' @examples 
+#' \dontrun{
+#' shinyReformsPage(shiny::fluidPage(...))
+#' }
 #' @export
 shinyReformsPage <- function(htmlTag) {
     dependency <- shinyReformsDependency()

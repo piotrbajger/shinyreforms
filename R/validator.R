@@ -1,6 +1,3 @@
-library(R6)
-
-
 #' Class representing a Validator.
 #' 
 #' @description 
@@ -8,8 +5,10 @@ library(R6)
 #' Validators are to be used with the validatedInput function.
 #' A single input field can have several validators.
 #' 
-#' @usage
+#' @example
+#' \dontrun{
 #' Validator(function(value) {...}, "Validation failed!")
+#' }
 #' 
 #' @field test Function returning a boolean value which will be used
 #'   to validate input.
@@ -24,9 +23,6 @@ library(R6)
 #'  \item{ValidatorNonEmpty():}{Will fail if string is empty.}
 #' }
 #' 
-#' @name Validator
-NULL
-
 #' @importFrom R6 R6Class
 #' @export
 Validator <- R6Class(
@@ -36,6 +32,12 @@ Validator <- R6Class(
         test = NULL,
         failMessage = "",
 
+        #' @description
+        #' Creates a Validator object.
+        #'
+        #' @param test A function to test the input. Should
+        #'  take a single value as input and return a boolean.
+        #' @param failMessage A fail message to be displayed.
         initialize = function(test, failMessage) {
             # Wrap the test function up to check for emptyness first
             self$test <- function(value) {
@@ -48,6 +50,11 @@ Validator <- R6Class(
             self$failMessage <- failMessage
         },
 
+        #' @description
+        #' Performs a check on the input.
+        #'
+        #' @param value Input value to be tested.
+        #' @return TRUE if the check passes, FALSE if otherwise.
         check = function(value) {
             return(self$test(value))
         }
