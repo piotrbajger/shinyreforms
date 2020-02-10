@@ -73,3 +73,21 @@ test_that("Validate shiny::numericInput", {
     expect_true(grepl("dummy", toString(newInput)))
     expect_true(grepl("shinyreforms-validation", toString(newInput)))
 })
+
+
+test_that("Validate shiny::passwordInput", {
+    testInput <- shiny::passwordInput(
+        "input_password",
+        label="Test",
+    )
+
+    newInput <- validatedInput(
+        testInput,
+        helpText="dummy",
+        validators=c(.testValidator)
+    )
+
+    expect_equal(length(attr(newInput, "validators")), 1)
+    expect_true(grepl("dummy", toString(newInput)))
+    expect_true(grepl("shinyreforms-validation", toString(newInput)))
+})
