@@ -11,3 +11,4 @@ Shiny application with an object-oriented interface.
 # install.packages("devtools")
 devtools::install_github("piotrbajger/shinyreforms")
 ```
+

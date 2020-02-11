@@ -4,7 +4,8 @@ Version: 0.0.1
 Authors@R: 
     person(given = "Piotr",
            family = "Bajger",
-           role = c("aut", "cre")
+           role = c("aut", "cre"),
+	   email = "piotr.bajger@hotmail.com"
     )
 Description: Add Forms to your Shiny App and validate Inputs easily
     with an Object-Oriented interface.
