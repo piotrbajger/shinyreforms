@@ -7,6 +7,6 @@
 ValidatorNonEmpty()
 }
 \description{
-Will return FASLE if the input is NULL, an empty vector,
+Will return FALSE if the input is NULL, an empty vector,
 or an empty string ("") and FALSE otherwise.
 }

@@ -50,7 +50,7 @@ validatedInput <- function(tag, helpText=NULL, validators=c()) {
 #' 
 #' @description
 #' Internal function which adds a shinyreforms pop-up
-#' with help text to a shiny inputTag. The helptext
+#' with help text to a shiny inputTag. The help text
 #' is a div which gets appended to the label for the
 #' given input.
 #' 
