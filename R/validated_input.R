@@ -88,6 +88,11 @@ addHelpText <- function(tag, helpText, updated=FALSE) {
     }
 
     for (i in 1:nChildren) {
+        # Skip non shiny.tag elements
+        if (any(class(tag$children[[i]]) != "shiny.tag")) {
+            next
+        }
+        
         tag$children[[i]] <- addHelpText(
             tag$children[[i]], helpText, updated
         )
