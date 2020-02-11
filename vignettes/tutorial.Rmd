@@ -1,0 +1,130 @@
+---
+title: "Getting started with ShinyReforms"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+# ShinyReForms -- Getting Started
+
+## Motivation
+
+ShinyReforms was designed to make HTML form validation in Shiny easier. It
+offers an object-oriented interface to create standalone forms with Shiny-native
+building blocks and allows for easy embedding in your existing Shiny app.
+
+## Example
+
+In this example we will build a simple form which is going to look
+like this:
+
+```{r, echo=FALSE, out.width="60%", fig.align="center"}
+knitr::include_graphics("example_form.png")
+```
+
+### ShinyForm
+
+We first create a `ShinyForm` object:
+
+```{r}
+myForm <- shinyreforms::ShinyForm$new(
+    "myForm", 
+    submit = "Submit",
+    shinyreforms::validatedInput(
+        shiny::textInput("name_input", label = "Username"),
+        helpText="Username length is between 4 and 12 characters.",
+        validators = c(
+            shinyreforms::ValidatorMinLength(4),
+            shinyreforms::ValidatorMaxLength(12),
+            shinyreforms::Validator$new(
+                test = function(value) value != "test",
+                failMessage = "Username can't be 'test'!"
+            )
+        )
+    ),
+    shinyreforms::validatedInput(
+        shiny::checkboxInput("checkbox", label = "I accept!"),
+        validators = c(
+            shinyreforms::ValidatorRequired()
+        )
+    )
+)
+```
+
+Let's break this snippset down. A `ShinyForm` is an `R6` class which is
+used to define the form. First argument to the constructor is form id
+by which you can refer to the form later on. The second argument is the
+submission button label.
+
+The remaining ellipsis (`...`) arguments are shiny tags from which the form
+will be composed. The shiny tags are enclosed in the
+`shinyreforms::validatedInput` function which adds validators to the input
+tag, as well as an optional tooltip (`helpText`).
+
+### Validators
+
+Validators are functions which return `TRUE` or `FALSE` when passed an input
+value. ShinyReForms defines a number of pre-defined validators (such
+as `ValidatorMinLength`) and allows users to create custom validators.
+
+For example in
+```{r, eval=FALSE}
+  # snip
+    shinyreforms::validatedInput(
+        shiny::textInput("name_input", label = "Username"),
+        helpText="Username length is between 4 and 12 characters.",
+        validators = c(
+            shinyreforms::ValidatorMinLength(4),
+            shinyreforms::ValidatorMaxLength(12),
+            shinyreforms::Validator$new(
+                test = function(value) value != "test",
+                failMessage = "Username can't be 'test'!"
+            )
+        )
+    ),
+  # snip
+```
+we have created a Shiny `textInput` which will pass validation only if
+the length of the input is between 4 and 12 and the username is not `test`.
+
+### UI
+
+To include your form in your UI it is enough to call its `ui` method. For
+example:
+
+```{r}
+ui <- shiny::bootstrapPage(
+    shinyreforms::shinyReformsPage(  # This adds a dependency on shinyreforms .css
+        shiny::fluidPage(
+            shiny::tags$h1("Example ShinyForm!"),
+            myForm$ui(),  # <- ShinyForm will be included here!
+            shiny::tags$h4("Result:"),
+            shiny::textOutput("result")
+        )
+    )
+)
+```
+
+### Server
+
+Form submission can be detected through the `submissionEvent` in the server
+function as shown below. The `validate` method calls validators on each
+input and returns `TRUE` if all validators for all inputs returned `TRUE`.
+
+```{r}
+server <- function(input, output, session) {
+    shiny::observeEvent(myForm$submissionEvent(input), {
+        if (myForm$validate(input, output)) {
+            yourName <- myForm$getValue(input, "name_input")
+
+            output$result <- shiny::renderText({
+                paste0("Your name is '", yourName, "'.")
+            })
+        } else {
+            output$result <- shiny::renderText("Form is not valid!")
+        }
+    })
+}
+```

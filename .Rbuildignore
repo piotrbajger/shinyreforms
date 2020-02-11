@@ -1,2 +1,4 @@
 .travis.yml
 shinyreforms.code-workspace
+^doc$
+^Meta$

@@ -38,6 +38,7 @@ to validate input.}
 \itemize{
 \item \href{#method-new}{\code{Validator$new()}}
 \item \href{#method-check}{\code{Validator$check()}}
+\item \href{#method-clone}{\code{Validator$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -76,6 +77,22 @@ Performs a check on the input.
 }
 \subsection{Returns}{
 TRUE if the check passes, FALSE if otherwise.
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Validator$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
 }
 }
 }

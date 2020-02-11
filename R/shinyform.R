@@ -31,9 +31,10 @@ ShinyForm <- R6Class(
         elements = list(),
         submit = NULL,
 
-        initialize = function(id, ..., submit) {
+        initialize = function(id, submit, ...) {
             self$id <- id
-            self$submit <- submit
+            submit_id <- paste0(self$id, "-submit")
+            self$submit <- shiny::actionButton(submit_id, label=submit)
 
             elems <- list(...)
 
