@@ -17,6 +17,12 @@ Validators. These include:
  \item{ValidatorNonEmpty():}{Will fail if string is empty.}
 }
 }
+\examples{
+\dontrun{
+Validator(function(value) {...}, "Validation failed!")
+}
+
+}
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{

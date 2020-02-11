@@ -5,7 +5,7 @@
 #' Validators are to be used with the validatedInput function.
 #' A single input field can have several validators.
 #' 
-#' @example
+#' @examples
 #' \dontrun{
 #' Validator(function(value) {...}, "Validation failed!")
 #' }
