@@ -9,10 +9,10 @@
 #' @field submit A submit Action button/link.
 #'
 #' @details
-#' Parameters `onSuccess` and `onError` passed to the constructor
-#' should be functions with signatures `function(self, input, output)`,
-#' where `self` will refer to the form itself, while `input` and `output`
-#' will be the usual Shiny objects.
+#' Parameters \code{onSuccess} and \code{onError} passed to the constructor
+#' should be functions with signatures \code{function(self, input, output)},
+#' where `self` will refer to the form itself, while \code{input} and
+#' \code{output} will be the usual Shiny objects.
 #'
 #' @name ShinyForm
 #' @importFrom R6 R6Class
