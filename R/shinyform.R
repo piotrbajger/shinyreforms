@@ -1,40 +1,47 @@
-library(shiny)
-library(R6)
-
 #' Class representing a ShinyForm form.
-#' 
+#'
 #' @field id Unique form id which can be used with Shiny input.
 #' @field elements A list of ShinyForm input elements.
+#' @field onSuccess A function with to be run on valid submission,
+#'  see details.
+#' @field onError A function with to be run on invalid submission,
+#'  see details.
 #' @field submit A submit Action button/link.
-#' 
-#' @section Methods:
-#' \describe{
-#' \item{ui():}{Returns a list of shiny tags corresponding to the form.}
-#' \item{validate(input, output):}{Returns TRUE or FALSE based on from
-#'      validation. Displays error messages for fields which did not pass
-#'      validation.}
-#' \item{submissionEvent(input):}{A form submission event to be used with shiny::observeEvent.}
-#' \item{getValue(input, inputId):}{Returns the value of a form element with a given id.}
-#' }
-#' 
+#'
+#' @details
+#' Parameters `onSuccess` and `onError` passed to the constructor
+#' should be functions with signatures `function(self, input, output)`,
+#' where `self` will refer to the form itself, while `input` and `output`
+#' will be the usual Shiny objects.
+#'
 #' @name ShinyForm
-NULL
-
-
 #' @importFrom R6 R6Class
+#' @import shiny
 #' @export
 ShinyForm <- R6Class(
     "ShinyForm",
 
     public = list(
         id = character(0),
+        onSuccess = NULL,
+        onError = NULL,
         elements = list(),
         submit = NULL,
 
-        initialize = function(id, submit, ...) {
+#' @description
+#' Initialises a ShinyForm.
+#' @param id Unique form identifier.
+#' @param submit Submit button label.
+#' @param onSuccess Function to be ran on successful validation.
+#' @param onError Function to be ran on unsuccesful validation.
+#' @param ... A list of validated Shiny inputs.
+        initialize = function(id, submit, onSuccess, onError, ...) {
             self$id <- id
             submit_id <- paste0(self$id, "-submit")
             self$submit <- shiny::actionButton(submit_id, label=submit)
+
+            self$onSuccess <- onSuccess
+            self$onError <- onError
 
             elems <- list(...)
 
@@ -50,6 +57,9 @@ ShinyForm <- R6Class(
             }
         },
 
+#' @description
+#' Returns the form's UI. To be used inside your
+#' App's UI.
         ui = function() {
             shiny::tagList(
                 self$elements,
@@ -57,6 +67,38 @@ ShinyForm <- R6Class(
             )
         },
 
+#' @description
+#' Form logic. To be inserted into your App's server function.
+#'
+#' Will validate form upon hitting the "Submit" button
+#' and run the `onSuccess` or `onError` function depending
+#' on whether the form is valid.
+#'
+#' @param input Shiny input.
+#' @param output Shiny output.
+        server = function(input, output) {
+            shiny::observeEvent(input[[self$submit$attribs$id]], {
+                if (private$validate(input, output)) {
+                    self$onSuccess(self, input, output)
+                } else {
+                    self$onError(self, input, output)
+                }
+            })
+        },
+
+#' @description
+#' Returns value of the input element with a given ID.
+#' @param input Shiny input.
+#' @param inputId ID of the input whose value is to be returned.
+        getValue = function(input, inputId) {
+            if ( !(inputId %in% names(self$elements)) ) {
+                shiny::safeError(paste0("Id ", inputId, " is not a valid Id for ", self$id, "."))
+            }
+            shiny::isolate(input[[inputId]])
+        }
+    ),
+
+    private = list(
         validate = function(input, output) {
             valid <- TRUE
             for (tagId in names(self$elements)) {
@@ -82,13 +124,6 @@ ShinyForm <- R6Class(
 
         submissionEvent = function(input) {
             input[[self$submit$attribs$id]]
-        },
-
-        getValue = function(input, inputId) {
-            if ( !(inputId %in% names(self$elements)) ) {
-                shiny::safeError(paste0("Id ", inputId, " is not a valid Id for ", self$id, "."))
-            }
-            shiny::isolate(input[[inputId]])
         }
     )
 )

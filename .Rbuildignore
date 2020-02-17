@@ -1,5 +1,8 @@
+^.lintr$
 .travis.yml
 shinyreforms.code-workspace
 ^doc$
 ^Meta$
 cran-comments.md
+.gitignore
+.git

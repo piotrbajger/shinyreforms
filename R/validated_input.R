@@ -1,20 +1,20 @@
 #' Add validator to a Shiny input.
-#' 
+#'
 #' @description
 #' Use to create shiny input tags with validation.
 #' This should only be used in ShinyForm constructor.
-#' 
+#'
 #' @details
 #' The Shiny tag receives an additional attribute `validators`
 #' which is a vector of `Validator` objects.
-#' 
+#'
 #' @param tag Tag to be modified.
 #' @param helpText Tooltip text. If NULL, no tooltip will be added.
 #' @param validators A vector of `Validator` objects.
-#' 
+#'
 #' @return A modified shiny input tag with attached validators
 #'   and an optional tooltip div.
-#' 
+#'
 #' @examples
 #' shinyreforms::validatedInput(
 #'     shiny::textInput("text_input", label="Username"),
@@ -47,24 +47,24 @@ validatedInput <- function(tag, helpText=NULL, validators=c()) {
 
 
 #' Adds a help icon to an input.
-#' 
+#'
 #' @description
 #' Internal function which adds a shinyreforms pop-up
 #' with help text to a shiny inputTag. The help text
 #' is a div which gets appended to the label for the
 #' given input.
-#' 
+#'
 #' @param tag A tag to be modified.
 #' @param helpText Help text to be added.
 #' @param updated An internal parameter which is used in
 #'   recurrent calls to the function.
-#' 
+#'
 #' @examples
 #' addHelpText(
 #'   shiny::textInput("text_input", label="Label"),
 #'   helpText="Tooltip"
 #' )
-#' 
+#'
 #' @return A modified Shiny tag with a shinyreforms help icon.
 #' @export
 addHelpText <- function(tag, helpText, updated=FALSE) {
@@ -84,7 +84,7 @@ addHelpText <- function(tag, helpText, updated=FALSE) {
     nChildren <- length(tag$children)
 
     if (nChildren == 0){
-        return(tag)  
+        return(tag)
     }
 
     for (i in 1:nChildren) {
@@ -92,7 +92,7 @@ addHelpText <- function(tag, helpText, updated=FALSE) {
         if (any(class(tag$children[[i]]) != "shiny.tag")) {
             next
         }
-        
+
         tag$children[[i]] <- addHelpText(
             tag$children[[i]], helpText, updated
         )

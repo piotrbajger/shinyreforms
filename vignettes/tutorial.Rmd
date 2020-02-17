@@ -30,8 +30,20 @@ We first create a `ShinyForm` object:
 
 ```{r}
 myForm <- shinyreforms::ShinyForm$new(
-    "myForm", 
+    "myForm",
     submit = "Submit",
+    onSuccess = function(self, input, output) {
+        yourName <- self$getValue(input, "name_input")
+
+        output$result <- shiny::renderText({
+            paste0("Your name is ", yourName, "!")
+        })
+    },
+    onError = function(self, input, output) {
+        output$result <- shiny::renderText({
+            "Form is invalid!"
+        })
+    },
     shinyreforms::validatedInput(
         shiny::textInput("name_input", label = "Username"),
         helpText="Username length is between 4 and 12 characters.",
@@ -57,6 +69,11 @@ Let's break this snippset down. A `ShinyForm` is an `R6` class which is
 used to define the form. First argument to the constructor is form id
 by which you can refer to the form later on. The second argument is the
 submission button label.
+
+The two callbacks `onSuccess` and `onError` are called when the form
+is submitted and respectively passes or fails the validation. The `self`
+argument refers to the form itself, while the `input` and `output` are
+the usual Shiny objects.
 
 The remaining ellipsis (`...`) arguments are shiny tags from which the form
 will be composed. The shiny tags are enclosed in the
@@ -109,22 +126,24 @@ ui <- shiny::bootstrapPage(
 
 ### Server
 
-Form submission can be detected through the `submissionEvent` in the server
-function as shown below. The `validate` method calls validators on each
-input and returns `TRUE` if all validators for all inputs returned `TRUE`.
+The validation logic is handled internally -- to include the form
+logic in your App it is enough to call `myForm$server()` in the
+server function.
 
 ```{r}
 server <- function(input, output, session) {
-    shiny::observeEvent(myForm$submissionEvent(input), {
-        if (myForm$validate(input, output)) {
-            yourName <- myForm$getValue(input, "name_input")
+    myForm$server(input, output)
 
-            output$result <- shiny::renderText({
-                paste0("Your name is '", yourName, "'.")
-            })
-        } else {
-            output$result <- shiny::renderText("Form is not valid!")
-        }
-    })
+    # More server logic
 }
 ```
+
+## Conclusion
+
+This is it -- now you can run your App with
+
+```{r, eval=FALSE}
+shiny::shinyApp(ui = ui, server = server)
+```
+
+and examine the resulting form!

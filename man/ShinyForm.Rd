@@ -5,26 +5,130 @@
 \title{Class representing a ShinyForm form.}
 \description{
 Class representing a ShinyForm form.
-}
-\section{Fields}{
 
+Class representing a ShinyForm form.
+}
+\details{
+Parameters `onSuccess` and `onError` passed to the constructor
+should be functions with signatures `function(self, input, output)`,
+where `self` will refer to the form itself, while `input` and `output`
+will be the usual Shiny objects.
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{id}}{Unique form id which can be used with Shiny input.}
 
 \item{\code{elements}}{A list of ShinyForm input elements.}
 
+\item{\code{onSuccess}}{A function with to be run on valid submission,
+see details.}
+
+\item{\code{onError}}{A function with to be run on invalid submission,
+see details.}
+
 \item{\code{submit}}{A submit Action button/link.}
-}}
-
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{ShinyForm$new()}}
+\item \href{#method-ui}{\code{ShinyForm$ui()}}
+\item \href{#method-server}{\code{ShinyForm$server()}}
+\item \href{#method-getValue}{\code{ShinyForm$getValue()}}
+\item \href{#method-clone}{\code{ShinyForm$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\subsection{Method \code{new()}}{
+Initialises a ShinyForm.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$new(id, submit, onSuccess, onError, ...)}\if{html}{\out{</div>}}
+}
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
 \describe{
-\item{ui():}{Returns a list of shiny tags corresponding to the form.}
-\item{validate(input, output):}{Returns TRUE or FALSE based on from
-     validation. Displays error messages for fields which did not pass
-     validation.}
-\item{submissionEvent(input):}{A form submission event to be used with shiny::observeEvent.}
-\item{getValue(input, inputId):}{Returns the value of a form element with a given id.}
+\item{\code{id}}{Unique form identifier.}
+
+\item{\code{submit}}{Submit button label.}
+
+\item{\code{onSuccess}}{Function to be ran on successful validation.}
+
+\item{\code{onError}}{Function to be ran on unsuccesful validation.}
+
+\item{\code{...}}{A list of validated Shiny inputs.}
 }
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ui"></a>}}
+\subsection{Method \code{ui()}}{
+Returns the form's UI. To be used inside your
+App's UI.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$ui()}\if{html}{\out{</div>}}
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-server"></a>}}
+\subsection{Method \code{server()}}{
+Form logic. To be inserted into your App's server function.
+
+Will validate form upon hitting the "Submit" button
+and run the `onSuccess` or `onError` function depending
+on whether the form is valid.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$server(input, output)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{input}}{Shiny input.}
+
+\item{\code{output}}{Shiny output.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getValue"></a>}}
+\subsection{Method \code{getValue()}}{
+Returns value of the input element with a given ID.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$getValue(input, inputId)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{input}}{Shiny input.}
+
+\item{\code{inputId}}{ID of the input whose value is to be returned.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ShinyForm$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}
