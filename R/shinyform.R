@@ -1,5 +1,11 @@
 #' Class representing a ShinyForm form.
 #'
+#' @description
+#' ShinyForm can be used to include forms in your website. Create
+#' a \code{ShinyForm} object anywhere in your application by
+#' defining all the inputs (possibly adding validators) and by
+#' specifying callback \code{onSuccess} and \code{onError} functions.
+#'
 #' @field id Unique form id which can be used with Shiny input.
 #' @field elements A list of ShinyForm input elements.
 #' @field onSuccess A function with to be run on valid submission,
