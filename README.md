@@ -4,6 +4,10 @@
 ShinyReForms package lets you add and validate Forms in your
 Shiny application with an object-oriented interface.
 
+## Documentation
+
+Documentation is available on [githubpages](https://piotrbajger.github.io/shinyreforms/).
+
 ## Installation
 
 Install current version from GitHub:
