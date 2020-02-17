@@ -7,7 +7,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' Validator(function(value) {...}, "Validation failed!")
+#' Validator(function(value) {
+#'   ...
+#' }, "Validation failed!")
 #' }
 #'
 #' @field test Function returning a boolean value which will be used
@@ -26,37 +28,40 @@
 #' @importFrom R6 R6Class
 #' @export
 Validator <- R6Class(
-    "Validator",
+  "Validator",
+  public = list(
+    test = NULL,
+    failMessage = "",
 
-    public = list(
-        test = NULL,
-        failMessage = "",
-
-#' @description
-#' Creates a Validator object.
-#'
-#' @param test A function to test the input. Should
-#'  take a single value as input and return a boolean.
-#' @param failMessage A fail message to be displayed.
-        initialize = function(test, failMessage) {
-            # Wrap the test function up to check for emptyness first
-            self$test <- function(value) {
-                if (is.null(value)) return(FALSE)
-                if (length(value) == 0) return(FALSE)
-
-                return(test(value))
-            }
-
-            self$failMessage <- failMessage
-        },
-
-#' @description
-#' Performs a check on the input.
-#'
-#' @param value Input value to be tested.
-#' @return TRUE if the check passes, FALSE if otherwise.
-        check = function(value) {
-            return(self$test(value))
+    #' @description
+    #' Creates a Validator object.
+    #'
+    #' @param test A function to test the input. Should
+    #'  take a single value as input and return a boolean.
+    #' @param failMessage A fail message to be displayed.
+    initialize = function(test, failMessage) {
+      # Wrap the test function up to check for emptyness first
+      self$test <- function(value) {
+        if (is.null(value)) {
+          return(FALSE)
         }
-    )
+        if (length(value) == 0) {
+          return(FALSE)
+        }
+
+        return(test(value))
+      }
+
+      self$failMessage <- failMessage
+    },
+
+    #' @description
+    #' Performs a check on the input.
+    #'
+    #' @param value Input value to be tested.
+    #' @return TRUE if the check passes, FALSE if otherwise.
+    check = function(value) {
+      return(self$test(value))
+    }
+  )
 )

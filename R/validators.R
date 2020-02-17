@@ -6,9 +6,9 @@
 #'
 #' @export
 ValidatorNonEmpty <- function() {
-    Validator$new(function(value) {
-        return (value != "")
-    }, "Field can not be empty.")
+  Validator$new(function(value) {
+    return(value != "")
+  }, "Field can not be empty.")
 }
 
 
@@ -21,9 +21,9 @@ ValidatorNonEmpty <- function() {
 #'
 #' @export
 ValidatorMinLength <- function(minLength) {
-    Validator$new(function(value) {
-        return (nchar(value) >= minLength)
-    }, paste0("Input too short (<", minLength, ")."))
+  Validator$new(function(value) {
+    return(nchar(value) >= minLength)
+  }, paste0("Input too short (<", minLength, ")."))
 }
 
 
@@ -36,9 +36,9 @@ ValidatorMinLength <- function(minLength) {
 #'
 #' @export
 ValidatorMaxLength <- function(maxLength) {
-    Validator$new(function(value) {
-        return (nchar(value) <= maxLength)
-    }, paste0("Input too long (>", maxLength, ")."))
+  Validator$new(function(value) {
+    return(nchar(value) <= maxLength)
+  }, paste0("Input too long (>", maxLength, ")."))
 }
 
 
@@ -49,7 +49,7 @@ ValidatorMaxLength <- function(maxLength) {
 #' for an unchecked textbox.)
 #' @export
 ValidatorRequired <- function() {
-    Validator$new(function(value) {
-        return(value)
-    }, "Field required.")
+  Validator$new(function(value) {
+    return(value)
+  }, "Field required.")
 }
