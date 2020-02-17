@@ -4,15 +4,16 @@
 \alias{ShinyForm}
 \title{Class representing a ShinyForm form.}
 \description{
-Class representing a ShinyForm form.
-
-Class representing a ShinyForm form.
+ShinyForm can be used to include forms in your website. Create
+a \code{ShinyForm} object anywhere in your application by
+defining all the inputs (possibly adding validators) and by
+specifying callback \code{onSuccess} and \code{onError} functions.
 }
 \details{
-Parameters `onSuccess` and `onError` passed to the constructor
-should be functions with signatures `function(self, input, output)`,
-where `self` will refer to the form itself, while `input` and `output`
-will be the usual Shiny objects.
+Parameters \code{onSuccess} and \code{onError} passed to the constructor
+should be functions with signatures \code{function(self, input, output)},
+where `self` will refer to the form itself, while \code{input} and
+\code{output} will be the usual Shiny objects.
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}

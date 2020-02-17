@@ -19,7 +19,9 @@ Validators. These include:
 }
 \examples{
 \dontrun{
-Validator(function(value) {...}, "Validation failed!")
+Validator(function(value) {
+  ...
+}, "Validation failed!")
 }
 
 }

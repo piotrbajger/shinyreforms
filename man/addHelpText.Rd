@@ -25,8 +25,7 @@ given input.
 }
 \examples{
 addHelpText(
-  shiny::textInput("text_input", label="Label"),
-  helpText="Tooltip"
+  shiny::textInput("text_input", label = "Label"),
+  helpText = "Tooltip"
 )
-
 }

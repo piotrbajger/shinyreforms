@@ -158,12 +158,12 @@ which is a vector of `Validator` objects.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw pkg'>shinyreforms</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shinyreforms/man/validatedInput.html'>validatedInput</a></span>(
-    <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/textInput.html'>textInput</a></span>(<span class='st'>"text_input"</span>, <span class='kw'>label</span><span class='kw'>=</span><span class='st'>"Username"</span>),
-    <span class='kw'>helpText</span><span class='kw'>=</span><span class='st'>"Username must have length between 4 and 12 characters."</span>,
-    <span class='kw'>validators</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
-        <span class='kw pkg'>shinyreforms</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shinyreforms/man/ValidatorMinLength.html'>ValidatorMinLength</a></span>(<span class='fl'>4</span>),
-        <span class='kw pkg'>shinyreforms</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shinyreforms/man/ValidatorMaxLength.html'>ValidatorMaxLength</a></span>(<span class='fl'>12</span>)
-    )
+  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/textInput.html'>textInput</a></span>(<span class='st'>"text_input"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Username"</span>),
+  <span class='kw'>helpText</span> <span class='kw'>=</span> <span class='st'>"Username must have length between 4 and 12 characters."</span>,
+  <span class='kw'>validators</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+    <span class='kw pkg'>shinyreforms</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shinyreforms/man/ValidatorMinLength.html'>ValidatorMinLength</a></span>(<span class='fl'>4</span>),
+    <span class='kw pkg'>shinyreforms</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shinyreforms/man/ValidatorMaxLength.html'>ValidatorMaxLength</a></span>(<span class='fl'>12</span>)
+  )
 )</div><div class='output co'>#&gt; &lt;div class="form-group shiny-input-container"&gt;
 #&gt;   &lt;label class="control-label" for="text_input"&gt;
 #&gt;     Username
