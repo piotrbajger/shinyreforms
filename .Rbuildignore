@@ -1,3 +1,4 @@
+^docs
 ^.lintr$
 .travis.yml
 shinyreforms.code-workspace
