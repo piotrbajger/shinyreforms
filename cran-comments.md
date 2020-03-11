@@ -4,6 +4,8 @@
 
 ## R CMD check results
 
+This is a first submission.
+
 There were no ERRORs, WARNINGs or NOTEs.
 
 ## Comments
