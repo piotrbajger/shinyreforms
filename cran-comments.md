@@ -4,7 +4,15 @@
 
 ## R CMD check results
 
-This is a first CRAN submission.
-
 There were no ERRORs, WARNINGs or NOTEs.
 
+## Comments
+
+This is a resubmission of the initial CRAN submission following
+feedback.
+
+What has changed:
+
+* LICENSE file removed (as standard GPL-3 is used).
+* Description filed made more, well, descriptive.
+* Fixed capitalisation in DESCRIPTION.

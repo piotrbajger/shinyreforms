@@ -8,3 +8,4 @@ shinyreforms.code-workspace
 cran-comments.md
 .gitignore
 .git
+^CRAN-RELEASE$
