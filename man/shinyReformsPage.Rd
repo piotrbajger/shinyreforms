@@ -13,7 +13,7 @@ shinyReformsPage(htmlTag)
 Adds a shinyreforms dependency to a tag object.
 }
 \examples{
-\dontrun{
+if(interactive()){
 shinyReformsPage(shiny::fluidPage(...))
 }
 }

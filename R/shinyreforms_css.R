@@ -14,7 +14,7 @@ shinyReformsDependency <- function() {
 #' @param htmlTag A shiny HTML tag.
 #'
 #' @examples
-#' \dontrun{
+#' if(interactive()){
 #' shinyReformsPage(shiny::fluidPage(...))
 #' }
 #' @importFrom htmltools htmlDependencies

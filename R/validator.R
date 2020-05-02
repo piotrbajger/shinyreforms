@@ -6,7 +6,7 @@
 #' A single input field can have several validators.
 #'
 #' @examples
-#' \dontrun{
+#' if(interactive()){
 #' Validator(function(value) {
 #'   ...
 #' }, "Validation failed!")

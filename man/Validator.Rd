@@ -18,7 +18,7 @@ Validators. These include:
 }
 }
 \examples{
-\dontrun{
+if(interactive()){
 Validator(function(value) {
   ...
 }, "Validation failed!")

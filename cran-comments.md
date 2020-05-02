@@ -6,15 +6,15 @@
 
 This is a first submission.
 
-There were no ERRORs, WARNINGs or NOTEs.
+There were no ERRORs, WARNINGs and one NOTE
+indicating this is a first submission.
 
 ## Comments
 
 This is a resubmission of the initial CRAN submission following
-feedback.
+the feedback.
 
 What has changed:
 
-* LICENSE file removed (as standard GPL-3 is used).
-* Description filed made more, well, descriptive.
-* Fixed capitalisation in DESCRIPTION.
+* Replace \dontrun{} with if(interactive()){}
+* Use quotation marks in DESCRIPTION for package and API names.

@@ -1,10 +1,10 @@
 Package: shinyreforms
-Title: Add Forms to your Shiny App
+Title: Add Forms to your 'Shiny' App
 Version: 0.0.1
 Author: Piotr Bajger <piotr.bajger@hotmail.com>
 Maintainer: Piotr Bajger <piotr.bajger@hotmail.com>
-Description: Allows to create modular, reusable HTML
-    forms which can be embedded in your `shiny` app with minimal effort.
+Description: Allows to create modular, reusable 'HTML'
+    forms which can be embedded in your 'shiny' app with minimal effort.
     Features include conditional code execution on form submission,
     automatic input validation and input tooltips.
 URL: https://github.com/piotrbajger/shinyreforms
