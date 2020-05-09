@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -36,9 +40,10 @@
 
 
 <meta property="og:title" content="Class representing a ShinyForm form. — ShinyForm" />
-<meta property="og:description" content="Class representing a ShinyForm form.
-Class representing a ShinyForm form." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:description" content="ShinyForm can be used to include forms in your website. Create
+a ShinyForm object anywhere in your application by
+defining all the inputs (possibly adding validators) and by
+specifying callback onSuccess and onError functions." />
 
 
 
@@ -56,7 +61,7 @@ Class representing a ShinyForm form." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -97,10 +102,13 @@ Class representing a ShinyForm form." />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/piotrbajger/shinyreforms">
+  <a href="https://github.com/piotrbajger/shinyreforms/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -124,8 +132,10 @@ Class representing a ShinyForm form." />
     </div>
 
     <div class="ref-description">
-    <p>Class representing a ShinyForm form.</p>
-<p>Class representing a ShinyForm form.</p>
+    <p>ShinyForm can be used to include forms in your website. Create
+a <code>ShinyForm</code> object anywhere in your application by
+defining all the inputs (possibly adding validators) and by
+specifying callback <code>onSuccess</code> and <code>onError</code> functions.</p>
     </div>
 
 
@@ -138,7 +148,7 @@ where `self` will refer to the form itself, while <code>input</code> and
 <code>output</code> will be the usual Shiny objects.</p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
-    <p><div class="r6-fields"></p><dl class='dl-horizontal'>
+    <p><div class="r6-fields"></p><dl'>
 <dt><code>id</code></dt><dd><p>Unique form id which can be used with Shiny input.</p></dd>
 
 <dt><code>elements</code></dt><dd><p>A list of ShinyForm input elements.</p></dd>
@@ -167,10 +177,10 @@ see details.</p></dd>
 <p><hr>
 <a id="method-new"></a></p><h3>Method <code>new()</code></h3>
 <p>Initialises a ShinyForm.</p><h3>Usage</h3>
-<p><div class="r"></p><pre>ShinyForm$new(id, submit, onSuccess, onError, ...)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>ShinyForm</span>$<span class='fu'>new</span>(<span class='no'>id</span>, <span class='no'>submit</span>, <span class='no'>onSuccess</span>, <span class='no'>onError</span>, <span class='no'>...</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+<p><div class="arguments"></p><dl'>
 <dt><code>id</code></dt><dd><p>Unique form identifier.</p></dd>
 
 <dt><code>submit</code></dt><dd><p>Submit button label.</p></dd>
@@ -186,7 +196,7 @@ see details.</p></dd>
 <a id="method-ui"></a></p><h3>Method <code>ui()</code></h3>
 <p>Returns the form's UI. To be used inside your
 App's UI.</p><h3>Usage</h3>
-<p><div class="r"></p><pre>ShinyForm$ui()</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>ShinyForm</span>$<span class='fu'>ui</span>()</pre><p></div></p>
 
 <p><hr>
 <a id="method-server"></a></p><h3>Method <code>server()</code></h3>
@@ -194,10 +204,10 @@ App's UI.</p><h3>Usage</h3>
 <p>Will validate form upon hitting the "Submit" button
 and run the `onSuccess` or `onError` function depending
 on whether the form is valid.</p><h3>Usage</h3>
-<p><div class="r"></p><pre>ShinyForm$server(input, output)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>ShinyForm</span>$<span class='fu'>server</span>(<span class='no'>input</span>, <span class='no'>output</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+<p><div class="arguments"></p><dl'>
 <dt><code>input</code></dt><dd><p>Shiny input.</p></dd>
 
 <dt><code>output</code></dt><dd><p>Shiny output.</p></dd>
@@ -206,10 +216,10 @@ on whether the form is valid.</p><h3>Usage</h3>
 <p><hr>
 <a id="method-getValue"></a></p><h3>Method <code>getValue()</code></h3>
 <p>Returns value of the input element with a given ID.</p><h3>Usage</h3>
-<p><div class="r"></p><pre>ShinyForm$getValue(input, inputId)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>ShinyForm</span>$<span class='fu'>getValue</span>(<span class='no'>input</span>, <span class='no'>inputId</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+<p><div class="arguments"></p><dl'>
 <dt><code>input</code></dt><dd><p>Shiny input.</p></dd>
 
 <dt><code>inputId</code></dt><dd><p>ID of the input whose value is to be returned.</p></dd>
@@ -218,10 +228,10 @@ on whether the form is valid.</p><h3>Usage</h3>
 <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre>ShinyForm$clone(deep = FALSE)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>ShinyForm</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl class='dl-horizontal'>
+<p><div class="arguments"></p><dl'>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
 
 </dl><p></div></p>
@@ -229,14 +239,10 @@ on whether the form is valid.</p><h3>Usage</h3>
 
 
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#details">Details</a></li>
-      <li><a href="#public-fields">Public fields</a></li>
-      <li><a href="#methods">Methods</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -247,7 +253,7 @@ on whether the form is valid.</p><h3>Usage</h3>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

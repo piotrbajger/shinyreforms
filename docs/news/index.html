@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Adds a help icon to an input. — addHelpText • shinyreforms</title>
+<title>Changelog • shinyreforms</title>
 
 
 <!-- jquery -->
@@ -39,11 +39,7 @@
 
 
 
-<meta property="og:title" content="Adds a help icon to an input. — addHelpText" />
-<meta property="og:description" content="Internal function which adds a shinyreforms pop-up
-with help text to a shiny inputTag. The help text
-is a div which gets appended to the label for the
-given input." />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -62,7 +58,7 @@ given input." />
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -126,62 +122,23 @@ given input." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Adds a help icon to an input.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/piotrbajger/shinyreforms/blob/master/R/validated_input.R'><code>R/validated_input.R</code></a></small>
-    <div class="hidden name"><code>addHelpText.Rd</code></div>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/piotrbajger/shinyreforms/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p>Internal function which adds a shinyreforms pop-up
-with help text to a shiny inputTag. The help text
-is a div which gets appended to the label for the
-given input.</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>addHelpText</span>(<span class='no'>tag</span>, <span class='no'>helpText</span>, <span class='kw'>updated</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>tag</th>
-      <td><p>A tag to be modified.</p></td>
-    </tr>
-    <tr>
-      <th>helpText</th>
-      <td><p>Help text to be added.</p></td>
-    </tr>
-    <tr>
-      <th>updated</th>
-      <td><p>An internal parameter which is used in
-recurrent calls to the function.</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A modified Shiny tag with a shinyreforms help icon.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>addHelpText</span>(
-  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/textInput.html'>textInput</a></span>(<span class='st'>"text_input"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Label"</span>),
-  <span class='kw'>helpText</span> <span class='kw'>=</span> <span class='st'>"Tooltip"</span>
-)</div><div class='output co'>#&gt; &lt;div class="form-group shiny-input-container"&gt;
-#&gt;   &lt;label class="control-label" for="text_input"&gt;
-#&gt;     Label
-#&gt;     &lt;div class="shinyreforms-tooltip"&gt;
-#&gt;       &lt;i class="glyphicon glyphicon-question-sign"&gt;&lt;/i&gt;
-#&gt;       &lt;div class="shinyreforms-tooltip-text"&gt;Tooltip&lt;/div&gt;
-#&gt;     &lt;/div&gt;
-#&gt;   &lt;/label&gt;
-#&gt;   &lt;input id="text_input" type="text" class="form-control" value=""/&gt;
-#&gt; &lt;/div&gt;</div></pre>
+    <div id="shinyreforms-v0-0-1" class="section level1">
+<h1 class="page-header" data-toc-text="0.0.1">
+<a href="#shinyreforms-v0-0-1" class="anchor"></a>ShinyReForms v0.0.1</h1>
+<p>This is the first release of ShinyReForms.</p>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
 
 
