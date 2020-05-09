@@ -6,6 +6,9 @@
 \usage{
 shinyReformsDependency()
 }
+\value{
+A list containing the shinyreforms style dependency.
+}
 \description{
 Constructs a shinyreforms dependency.
 }

@@ -9,6 +9,10 @@ ValidatorMinLength(minLength)
 \arguments{
 \item{minLength}{Minimum length of the input.}
 }
+\value{
+A `Validator` checking that the input value is of length at
+ least \code{minLength}.
+}
 \description{
 Will return TRUE for strings longer than the minimum value.
 }

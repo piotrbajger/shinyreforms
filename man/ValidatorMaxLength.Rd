@@ -2,12 +2,16 @@
 % Please edit documentation in R/validators.R
 \name{ValidatorMaxLength}
 \alias{ValidatorMaxLength}
-\title{Validator requiring maximum length.}
+\title{Validator enforcing maximum length.}
 \usage{
 ValidatorMaxLength(maxLength)
 }
 \arguments{
 \item{maxLength}{Maximum length of the input.}
+}
+\value{
+A `Validator` checking that the input value does not exceed
+ \code{maxLength}.
 }
 \description{
 Will return TRUE for strings longer than the maximum value.

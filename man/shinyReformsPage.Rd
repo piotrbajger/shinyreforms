@@ -9,6 +9,10 @@ shinyReformsPage(htmlTag)
 \arguments{
 \item{htmlTag}{A shiny HTML tag.}
 }
+\value{
+The input htmlTag with the shinyreforms.css dependency
+ added.
+}
 \description{
 Adds a shinyreforms dependency to a tag object.
 }

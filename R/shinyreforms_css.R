@@ -1,4 +1,5 @@
 #' Constructs a shinyreforms dependency.
+#' @return A list containing the shinyreforms style dependency.
 #' @importFrom htmltools htmlDependency
 shinyReformsDependency <- function() {
   list(htmltools::htmlDependency(
@@ -12,6 +13,9 @@ shinyReformsDependency <- function() {
 #' Adds a shinyreforms dependency to a tag object.
 #'
 #' @param htmlTag A shiny HTML tag.
+#'
+#' @return The input htmlTag with the shinyreforms.css dependency
+#'  added.
 #'
 #' @examples
 #' if(interactive()){

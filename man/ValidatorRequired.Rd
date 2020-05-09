@@ -2,9 +2,12 @@
 % Please edit documentation in R/validators.R
 \name{ValidatorRequired}
 \alias{ValidatorRequired}
-\title{Validator requiring a input (e.g. checkbox).}
+\title{Validator requiring a input (e.g. checked checkbox).}
 \usage{
 ValidatorRequired()
+}
+\value{
+A validator which checks that the value is present.
 }
 \description{
 Will return FALSE if the input value is FALSE (e.g. like

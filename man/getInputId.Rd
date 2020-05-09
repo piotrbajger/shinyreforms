@@ -9,6 +9,9 @@ getInputId(inputTag)
 \arguments{
 \item{inputTag}{A shiny tag to retrieve the ID from.}
 }
+\value{
+ID of an input tag.
+}
 \description{
 Returns an ID of an input tag.
 }

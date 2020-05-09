@@ -143,6 +143,7 @@ addValidationSuffix <- function(tagId) {
 
 
 #' Returns an ID of an input tag.
+#' @return ID of an input tag.
 #' @param inputTag A shiny tag to retrieve the ID from.
 getInputId <- function(inputTag) {
   if (!inherits(inputTag, "shiny.tag")) {

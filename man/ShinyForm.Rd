@@ -44,6 +44,7 @@ see details.}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 Initialises a ShinyForm.
 \subsection{Usage}{
@@ -68,6 +69,7 @@ Initialises a ShinyForm.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ui"></a>}}
+\if{latex}{\out{\hypertarget{method-ui}{}}}
 \subsection{Method \code{ui()}}{
 Returns the form's UI. To be used inside your
 App's UI.
@@ -78,6 +80,7 @@ App's UI.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-server"></a>}}
+\if{latex}{\out{\hypertarget{method-server}{}}}
 \subsection{Method \code{server()}}{
 Form logic. To be inserted into your App's server function.
 
@@ -100,6 +103,7 @@ on whether the form is valid.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-getValue"></a>}}
+\if{latex}{\out{\hypertarget{method-getValue}{}}}
 \subsection{Method \code{getValue()}}{
 Returns value of the input element with a given ID.
 \subsection{Usage}{
@@ -118,6 +122,7 @@ Returns value of the input element with a given ID.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

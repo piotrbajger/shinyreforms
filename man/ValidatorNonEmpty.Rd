@@ -6,7 +6,10 @@
 \usage{
 ValidatorNonEmpty()
 }
+\value{
+A `Validator` to check if an input is non-empty.
+}
 \description{
-Will return FALSE if the input is NULL, an empty vector,
-or an empty string ("") and FALSE otherwise.
+The validator will return FALSE if the input is NULL, an empty
+vector, or an empty string ("") and FALSE otherwise.
 }
