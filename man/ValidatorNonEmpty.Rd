@@ -7,7 +7,7 @@
 ValidatorNonEmpty()
 }
 \value{
-A `Validator` to check if an input is non-empty.
+A \code{Validator} to check if an input is non-empty.
 }
 \description{
 The validator will return FALSE if the input is NULL, an empty

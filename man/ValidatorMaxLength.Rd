@@ -10,7 +10,7 @@ ValidatorMaxLength(maxLength)
 \item{maxLength}{Maximum length of the input.}
 }
 \value{
-A `Validator` checking that the input value does not exceed
+A \code{Validator} checking that the input value does not exceed
  \code{maxLength}.
 }
 \description{

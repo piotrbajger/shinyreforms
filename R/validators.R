@@ -4,7 +4,7 @@
 #' The validator will return FALSE if the input is NULL, an empty
 #' vector, or an empty string ("") and FALSE otherwise.
 #'
-#' @return A `Validator` to check if an input is non-empty.
+#' @return A \code{Validator} to check if an input is non-empty.
 #' @export
 ValidatorNonEmpty <- function() {
   Validator$new(function(value) {
@@ -18,7 +18,7 @@ ValidatorNonEmpty <- function() {
 #' @description
 #' Will return TRUE for strings longer than the minimum value.
 #'
-#' @return A `Validator` checking that the input value is of length at
+#' @return A \code{Validator} checking that the input value is of length at
 #'  least \code{minLength}.
 #' @param minLength Minimum length of the input.
 #'
@@ -35,7 +35,7 @@ ValidatorMinLength <- function(minLength) {
 #' @description
 #' Will return TRUE for strings longer than the maximum value.
 #'
-#' @return A `Validator` checking that the input value does not exceed
+#' @return A \code{Validator} checking that the input value does not exceed
 #'  \code{maxLength}.
 #' @param maxLength Maximum length of the input.
 #'
