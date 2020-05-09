@@ -16,5 +16,23 @@ the feedback.
 
 What has changed:
 
-* Replace \dontrun{} with if(interactive()){}
-* Use quotation marks in DESCRIPTION for package and API names.
+Previous submission had the following missing Rd-tags:
+
+- getInputId.Rd: \value -- FIXED
+- ShinyForm.Rd: \arguments,  \value -- NOT FIXED (R6Class, these tags should not be required?)
+- shinyReformsDependency.Rd: \arguments,  \value -- FIXED (\value now present, but this
+	function takes no arguments)
+- shinyReformsPage.Rd: \value -- FIXED
+- Validator.Rd: \arguments,  \value -- NOT FIXED (R6Class, these tags should not be required?)
+- ValidatorMaxLength.Rd: \value -- FIXED
+- ValidatorMinLength.Rd: \value -- FIXED
+- ValidatorNonEmpty.Rd: \arguments,  \value -- FIXED (\value now present, but this
+	function takes no arguments)
+- ValidatorRequired.Rd: \arguments,  \value -- FIXED (\value now present, but this
+	function takes no arguments)
+
+On \value and \arguments for R6Class: the \arguments for the
+constructor are part of the `new` method documentation and I can't really see
+a place for \value tag there.
+
+Also, is \arguments section in functions which take no arguments really needed?
