@@ -150,7 +150,7 @@ getInputId <- function(inputTag) {
     return(NULL)
   }
 
-  if ("id" %in% names(inputTag$attribs)) {
+  if (inputTag$name == "input") {
     return(inputTag$attribs[["id"]])
   }
 
